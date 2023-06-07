@@ -1,0 +1,13 @@
+name: My CI/CD Pipeline
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run pre-receive checks
+        run: |
+          # Your pre-receive check commands here
