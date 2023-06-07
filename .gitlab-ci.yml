@@ -10,4 +10,4 @@ jobs:
         uses: actions/checkout@v2
       - name: Run pre-receive checks
         run: |
-          # Your pre-receive check commands here
+          /Users/anannya.singh/sample/hooks/pre-receive
