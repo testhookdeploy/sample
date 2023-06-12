@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Directory to save the extracted files
+save_directory="files"
+
+# Create the save directory if it doesn't exist
+mkdir -p "$save_directory"
+
 # Read the list of changed objects from standard input
 while read oldrev newrev refname; do
   # Get the list of changed files
@@ -8,8 +14,8 @@ while read oldrev newrev refname; do
   # Iterate over each changed file
   while read -r file; do
     echo "Changed file: $file"
-    # You can perform any desired actions with the changed files here
-    # For example, you can extract relevant information or perform checks/validation
+    # Extract the file to the save directory
+    git cat-file -p $newrev:"$file" > "$save_directory/$file"
 
   done <<< "$changed_files"
 
